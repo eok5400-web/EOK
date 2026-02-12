@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[알로이시오 AI 순례길] 파일럿 캠프 운영 안내</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-yellow: #FEE500;
+            --primary-brown: #3A1D1D;
+            --bg-light: #f9f9f9;
+            --text-main: #333333;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .notice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--primary-yellow);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--primary-brown);
+            color: var(--primary-yellow);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            color: var(--primary-brown);
+            font-size: 32px;
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            word-break: keep-all;
+            line-height: 1.3;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-brown);
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 40px 30px;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-muted);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--primary-brown);
+            border-bottom: 3px solid var(--primary-yellow);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 25px;
+        }
+
+        /* Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .overview-card {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .overview-card i {
+            font-size: 24px;
+            color: var(--primary-brown);
+            margin-bottom: 10px;
+        }
+
+        .overview-card h4 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .overview-card p {
+            margin: 0;
+            font-weight: 700;
+            font-size: 16px;
+            word-break: keep-all;
+        }
+
+        /* Timeline Schedule */
+        .timeline {
+            position: relative;
+            margin: 0 0 40px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary-yellow);
+            left: 20px;
+            margin: 0;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 50px;
+        }
+
+        .timeline-badge {
+            background: var(--primary-brown);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            position: absolute;
+            left: 8px;
+            top: 5px;
+        }
+
+        .timeline-panel {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+        }
+
+        .timeline-day {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--primary-brown);
+            margin-bottom: 15px;
+        }
+
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .schedule-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .schedule-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .time-mark {
+            font-weight: 700;
+            color: var(--primary-brown);
+            background-color: var(--primary-yellow);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .event-detail {
+            margin-top: 8px;
+            padding-left: 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .event-detail li {
+            margin-bottom: 5px !important;
+            padding-bottom: 0 !important;
+            border-bottom: none !important;
+            position: relative;
+        }
+        
+        .event-detail li::before {
+            content: '-';
+            position: absolute;
+            left: -15px;
+            color: var(--text-muted);
+        }
+
+        /* Fee Section */
+        .fee-box {
+            background-color: #fff9c4;
+            border: 2px solid var(--primary-yellow);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .fee-box h3 {
+            color: var(--primary-brown);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .fee-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .fee-list li {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .fee-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .fee-label {
+            font-weight: 900;
+            color: var(--primary-brown);
+            display: inline-block;
+            width: 130px;
+        }
+
+        .fee-desc {
+            display: block;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            padding-left: 135px;
+        }
+
+        @media (max-width: 600px) {
+            .fee-label { width: 100%; display: block; margin-bottom: 5px; }
+            .fee-desc { padding-left: 0; }
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background-color: var(--primary-brown);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            color: var(--primary-yellow);
+            margin-top: 0;
+        }
+        
+        /* Apply Button */
+        .apply-btn {
+            display: inline-block;
+            background-color: var(--primary-yellow);
+            color: var(--primary-brown);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 18px;
+            border-radius: 30px;
+            margin: 15px 0 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            background-color: #ffd700;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        .contact-item i {
+            color: var(--primary-yellow);
+            margin-right: 10px;
+        }
+
+        .footer-quote {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--primary-brown);
+        }
+
+        @media (max-width: 600px) {
+            .hero-title { font-size: 24px; }
+            .content-section { padding: 30px 20px; }
+            .overview-grid { grid-template-columns: 1fr 1fr; }
+            .apply-btn { width: 100%; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="notice-container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-badge">K-Camino 공지</div>
+        <h1 class="hero-title">🌊 돌아와요 부산으로!<br>'알로이시오 AI 순례길'<br>파일럿 캠프 안내</h1>
+        <p class="hero-subtitle">"재미나이 함께하는, 재미난 부산 가는 길!"</p>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+        
+        <div class="intro-text">
+            <p>건강하게 성찰하고 학습하는 시민 여러분, 다가오는 3월 따뜻한 봄바람과 함께 부산으로 향합니다.</p>
+            <p>이번 여정은 스마트폰 속 AI 친구 <strong>'재미나이'</strong>, 그리고 순례길에 맞춰 특별한 활동복을 입은 <strong>'순례길프렌즈-깨우'</strong> 캐릭터와 함께 걷는 <strong>[알로이시오 AI 순례길]</strong> 파일럿 캠프로 진행됩니다.</p>
+            <p>기술과 감성이 만나고, 과거의 숭고한 정신과 현재의 우리가 교감하는 뜻깊은 시간에 여러분을 초대합니다.</p>
+        </div>
+
+        <!-- Overview Cards -->
+        <h2 class="section-title"><i class="fa-solid fa-map-pin"></i> 캠프 개요</h2>
+        <div class="overview-grid">
+            <div class="overview-card">
+                <i class="fa-solid fa-flag"></i>
+                <h4>주제</h4>
+                <p>돌아와요 부산으로, 부산 가는 길<br><span style="font-size: 13px; color: var(--text-muted); font-weight: normal; margin-top: 5px; display: inline-block;">(알로이시오 AI 순례길 파일럿)</span></p>
+            </div>
+            <div class="overview-card">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h4>일정</h4>
+                <p>3/13(금) ~ 3/16(월) / 3박 4일</p>
+            </div>
+            <div class="overview-card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>장소</h4>
+                <p>알로이시오기지 및 부산 송도일대</p>
+                <p style="font-size: 12px; color: var(--text-muted); font-weight: normal; margin-top: 5px;">*네이버/카카오맵 '알로이시오기지 2문' 검색</p>
+            </div>
+            <div class="overview-card">
+                <i class="fa-solid fa-users"></i>
+                <h4>대상</h4>
+                <p>건강하고 성찰하며 학습하는 시민</p>
+            </div>
+        </div>
+
+        <!-- Timeline Schedule -->
+        <h2 class="section-title"><i class="fa-solid fa-clock"></i> 상세 일정 안내</h2>
+        <ul class="timeline">
+            <!-- Day 1 -->
+            <li class="timeline-item">
+                <div class="timeline-badge"></div>
+                <div class="timeline-panel">
+                    <div class="timeline-day">🔹 [1일차] 3월 13일 (금) : 만남과 깨어남</div>
+                    <ul class="schedule-list">
+                        <li>
+                            <span class="time-mark">15:00</span> <strong>알로이시오기지 2문 집결</strong> <span style="font-size: 13px; color: var(--text-muted); font-weight: normal; margin-left: 5px;"><i class="fa-solid fa-map-location-dot"></i> 네이버 지도/카카오맵 검색 가능</span>
+                            <ul class="event-detail">
+                                <li>순례길프렌즈 '깨우'와 반가운 첫인사 👋</li>
+                                <li>내 손안의 길동무 '재미나이' 앱 세팅 및 오리엔테이션</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="time-mark">16:00</span> <strong>기지 투어 및 AI 도슨트 체험</strong>
+                            <ul class="event-detail">
+                                <li>알로이시오기지의 역사와 의미를 AI의 친절한 설명으로 듣기</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="time-mark">18:00</span> <strong>환대의 저녁 및 별밤 토크</strong>
+                            <ul class="event-detail">
+                                <li>부산의 정이 담긴 저녁 식사</li>
+                                <li>설레는 첫날, AI와 함께 기록하는 나의 성찰 일기 나누기</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- Day 2 -->
+            <li class="timeline-item">
+                <div class="timeline-badge"></div>
+                <div class="timeline-panel">
+                    <div class="timeline-day">🔹 [2일차] 3월 14일 (토) : 걷고, 질문하고, 기록하다</div>
+                    <ul class="schedule-list">
+                        <li>
+                            <span class="time-mark">09:00</span> <strong>알로이시오기지 2문 출발 및 마라톤 코스 걷기</strong>
+                            <ul class="event-detail">
+                                <li><strong>[묻다]</strong> 코스를 걸으며 만나는 자연과 역사를 재미나이에게 질문하기</li>
+                                <li><strong>[찾다]</strong> 트레킹 복장의 순례길프렌즈 '깨우' 캐릭터와 함께 포토존에서 사진 촬영 📸</li>
+                                <li><strong>[쓰다]</strong> 땀 흘려 완주한 감동을 AI와 함께 한 편의 시(Poem)로 창작하기</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="time-mark">15:00</span> <strong>코스 완주 기념 및 나눔의 시간</strong>
+                            <ul class="event-detail">
+                                <li>각자 창작한 시와 사진을 나누며 힐링 타임</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- Day 3-4 -->
+            <li class="timeline-item">
+                <div class="timeline-badge"></div>
+                <div class="timeline-panel">
+                    <div class="timeline-day">🔹 [3~4일차] 3월 15일 (일) ~ 16일 (월) : 추모와 자율 성찰</div>
+                    <ul class="schedule-list">
+                        <li>
+                            <span class="time-mark">자율 일정</span> <strong>추모미사 및 개별 일정 소화</strong>
+                            <ul class="event-detail">
+                                <li>알로이시오 몬시뇰 추모미사 자율 참여 🙏</li>
+                                <li>개인별 부산 성지순례 및 자유 여행</li>
+                                <li>충분한 휴식과 성찰 후 각자 귀가 (안녕히 가세요!)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Contact Section -->
+        <h2 class="section-title"><i class="fa-solid fa-circle-info"></i> 파일럿 캠프 참여 안내</h2>
+        <p style="margin-bottom: 25px; text-align: center; color: var(--text-muted);">이번 행사는 <strong>'알로이시오 AI 순례길'</strong> 정식 런칭 전 운영되는 파일럿 캠프입니다. 스마트폰 사용이 서툴러도 걱정 마세요. 동행하는 스태프와 순례길프렌즈 '깨우'가 재미나고 쉽게 알려드립니다!</p>
+        
+        <!-- 참가비 안내 영역 -->
+        <div class="fee-box">
+            <h3><i class="fa-solid fa-coins"></i> 참가비 안내</h3>
+            <ul class="fee-list">
+                <li>
+                    <span class="fee-label">숙박 참여</span> 165,000원
+                    <span class="fee-desc">포함 내역: 숙소, 식대, 행사진행, 장소대관, 도슨트</span>
+                </li>
+                <li>
+                    <span class="fee-label">비숙박 참여</span> 75,000원
+                    <span class="fee-desc">포함 내역: 식대, 행사진행, 장소대관, 도슨트 (숙소 제외)</span>
+                </li>
+            </ul>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 15px; margin-bottom: 0;">*본 비용은 파일럿 운영을 위해 필수 실비만으로 책정되었습니다.</p>
+        </div>
+        
+        <div class="contact-box">
+            <h3><i class="fa-solid fa-paper-plane"></i> 참가 문의 및 신청</h3>
+            
+            <!-- 참가 신청 링크 버튼 -->
+            <a href="https://naver.me/FvQP7UhL" target="_blank" class="apply-btn">
+                <i class="fa-solid fa-link"></i> 온라인 참가 신청하기
+            </a>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i> <strong>대표번호:</strong> 1661-5293
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-mobile-screen"></i> <strong>부산길 문의:</strong> 유양선 마대장 (010-6582-1255)
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i> <strong>이메일:</strong> eokm@kakao.com
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-quote">
+            "기술은 거들 뿐, 주인공은 당신입니다."
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
